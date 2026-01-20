@@ -26,24 +26,21 @@ Potential errors
 
 Steps to reproduce:
 
-npm run dev (of npm start).
+- npm run dev (of npm start).
+    Open de URL die de PAC CLI spuwt (de Local Play URL).
+    ERROR: De browser zegt "localhost refused to connect" of toont een grijs vlak in het iframe.
 
-Open de URL die de PAC CLI spuwt (de Local Play URL).
-
-ERROR: De browser zegt "localhost refused to connect" of toont een grijs vlak in het iframe.
-
-Fix (The "Makkie Ouwe" Fix): Pas je package.json scripts aan naar:
+Fix : Pas je package.json scripts aan naar:
 
 JSON
 "scripts": {
   "start": "start pac code run && vite --port 3000 --strictPort"
 }
-Waarom dit werkt (De technische 'kanker' details):
+
+Waarom dit werkt (De technische details):
 
 Port Alignment: De Power Apps SDK en de PAC-tunnel luisteren standaard op poort 3000. Vite pakt standaard 5173, waardoor ze langs elkaar heen praten.
 
 StrictPort: Zonder --strictPort springt Vite naar 3001 als poort 3000 even bezet is (bijv. door een oude ghost-process). Dan weigert de Power Apps host de verbinding omdat de tunnel op de verkeerde poort doodloopt.
 
-PAC Runtime: Door start pac code run vóór vite te zetten, zorg je dat de Microsoft-omgeving (die de data-connecties regelt) al "luistert" voordat je React-bundel de eerste API-calls probeert te maken.
-
-Pro Tip voor je TODO: Als het dan nóg weigert: open http://localhost:3000 even handmatig in een nieuw tabblad in hetzelfde browserprofiel waar je Power Apps open hebt staan. Hiermee dwing je de browser om het lokale (vaak onbeveiligde) certificaat te accepteren voor dat iframe.
+PAC Runtime: Door start pac code run vóór vite te zetten, zorg je dat de Microsoft-omgeving (die de data-connecties regelt) al "luistert" voordat je React-bundel de eerste API-calls probeert te maken
