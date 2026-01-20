@@ -1,0 +1,12 @@
+{
+  "appId": "",
+  "appDisplayName": "POC-Code-Apps",
+  "description": null,
+  "environmentId": "48d49b0f-af3f-ec13-9f53-f2ca8fb3a853",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:3000/",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}
