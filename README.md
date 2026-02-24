@@ -7,6 +7,7 @@ Prerequisities:
 - Node installed
 ---------------------------------------------------------------------------
 Steps for new code apps project:
+
 **1) Init new react project**
     - npm create vite@latest POC-Code-Apps -- --template react-ts
     - cd POC-Code-Apps
@@ -17,6 +18,7 @@ Steps for new code apps project:
 
 3) **Install Dependencies**
     - npm install --save "@microsoft/power-apps"
+    - **important:** last known working version for this template is "@microsoft/power-apps": "^0.3.21",
 
 **4) Setup PowerApps connection (crucial step)**
 
