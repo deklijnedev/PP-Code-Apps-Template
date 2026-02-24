@@ -20,7 +20,12 @@ Steps to run code app in Power Platform environment
     change scripts object dev to:
         start pac code run && vite
 
+Steps to publish to Power Platform cloud tenant
 
+1) npm run build
+2) pac code push
+   
+--------------------------------------------------------
 Potential errors
 1) Error 'localhost refused to connect'
 
